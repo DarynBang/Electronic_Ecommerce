@@ -1,0 +1,131 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <h3 class="title-section">Store</h3>
+     <div class="category-section">
+          <h4 class="section-title">Laptop</h4>
+          <div class="row">
+          {% for product in laptops %}
+          <div class="col-lg-4">
+               <div class="box-element">
+                    <img class="thumbnail" src="{{ product.id.image}}">
+                    <div class="box-element product">
+                         <h5><strong>{{ product.id.name }}</strong></h5>
+                         <h6><strong>{{ product.id.b_name }}</strong></h6>
+                         <hr>
+                         <button data-product="{{ product.id }}" data-action="add"
+                                 class="btn btn-outline-secondary add-btn update-cart">Purchase Now</button>
+                         <a href="#" class="btn btn-outline-success">View</a>
+                         {% load l10n %}
+                         {% localize on %}
+                         <h5 style="display: inline-block; float: right">{{ product.id.price|floatformat:0 }}đ</h5>
+                         {% endlocalize %}
+                         <div class="extra-info" style="margin-top: 5px;">
+                            <h6><strong>RAM:</strong> {{ product.ram }} GB</h6>
+                            <h6><strong>CPU:</strong> {{ product.cpu }}</h6>
+                            <h6><strong>Graphic Card:</strong> {{ product.graphic_card }}</h6>
+                            <h6><strong>Purpose:</strong> {{ product.purpose }}</h6>
+                             <h6><strong>Discounts:</strong> {{ product.id.get_discount_programs }}</h6>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <br>
+          {% endfor %}
+          </div>
+     </div>
+
+     <br>
+
+     <div class="category-section">
+          <h4 class="section-title">Keyboard</h4>
+          <div class="row">
+          {% for product in keyboards %}
+          <div class="col-lg-4">
+               <div class="box-element">
+                    <img class="thumbnail" src="{{ product.id.image}}">
+                    <div class="box-element product">
+                         <h5><strong>{{ product.id.name }}</strong></h5>
+                         <h6><strong>{{ product.id.b_name }}</strong></h6>
+                         <hr>
+                         <button data-product="{{ product.id }}" data-action="add"
+                                 class="btn btn-outline-secondary add-btn update-cart">Purchase Now</button>
+                         <a href="#" class="btn btn-outline-success">View</a>
+                         {% load l10n %}
+                        {% localize on %}
+                        <h5 style="display: inline-block; float: right">{{ product.id.price|floatformat:0 }}đ</h5>
+                        {% endlocalize %}
+                          <div class="extra-info" style="margin-top: 5px;">
+                            <h6><strong>Switch Type:</strong> {{ product.switch_type }}</h6>
+                            <h6><strong>Layout:</strong> {{ product.layout }}</h6>
+                            <h6><strong>Connection:</strong> {{ product.get_connection}}</h6>
+                              <h6><strong>Discounts:</strong> {{ product.id.get_discount_programs }}</h6>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          {% endfor %}
+          </div>
+     </div>
+
+     <div class="category-section">
+          <h4 class="section-title">Mouse</h4>
+          <div class="row">
+          {% for product in mice %}
+          <div class="col-lg-4">
+               <div class="box-element">
+                    <img class="thumbnail" src="{{ product.id.image}}">
+                    <div class="box-element product">
+                         <h5><strong>{{ product.id.name }}</strong></h5>
+                         <h6><strong>{{ product.id.b_name }}</strong></h6>
+                         <hr>
+                         <button data-product="{{ product.id }}" data-action="add"
+                                 class="btn btn-outline-secondary add-btn update-cart">Purchase Now</button>
+                         <a href="#" class="btn btn-outline-success">View</a>
+                         {% load l10n %}
+                        {% localize on %}
+                        <h5 style="display: inline-block; float: right">{{ product.id.price|floatformat:0 }}đ</h5>
+                        {% endlocalize %}
+                         <div class="extra-info" style="margin-top: 5px;">
+                            <h6><strong>Led Color:</strong> {{ product.led_color }}</h6>
+                            <h6><strong>DPI:</strong> {{ product.dpi }}</h6>
+                             <h6><strong>Connection:</strong> {{ product.get_connection}}</h6>
+                             <h6><strong>Discounts:</strong> {{ product.id.get_discount_programs }}</h6>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          {% endfor %}
+          </div>
+     </div>
+
+     <div class="category-section">
+          <h4 class="section-title">Headset</h4>
+          <div class="row">
+          {% for product in earphones %}
+          <div class="col-lg-4">
+               <div class="box-element">
+                    <img class="thumbnail" src="{{ product.id.image}}">
+                    <div class="box-element product">
+                         <h5><strong>{{ product.id.name }}</strong></h5>
+                         <h6><strong>{{ product.id.b_name }}</strong></h6>
+                         <hr>
+                         <button data-product="{{ product.id }}" data-action="add"
+                                 class="btn btn-outline-secondary add-btn update-cart">Purchase Now</button>
+                         <a href="#" class="btn btn-outline-success">View</a>
+                         {% load l10n %}
+                        {% localize on %}
+                        <h5 style="display: inline-block; float: right">{{ product.id.price|floatformat:0 }}đ</h5>
+                        {% endlocalize %}
+                         <div id="info-{{ product.id }}" class="extra-info" style="margin-top: 5px;">
+                            <h6><strong>Type:</strong> {{ product.type }}</h6>
+                             <h6><strong>Connection:</strong> {{ product.get_connection}}</h6>
+                             <h6><strong>Discounts:</strong> {{ product.id.get_discount_programs }}</h6>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          {% endfor %}
+          </div>
+     </div>
+{% endblock content %}
